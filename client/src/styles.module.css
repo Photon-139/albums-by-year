@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.albumList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 3px;
+}
+
+.album {
+  max-width: 300px;
+  padding-right: 10px;
+  /* text-align: center; */
+}
+.album img {
+  margin-bottom: 5px;
+}
+.album div p {
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+.album div {
+  padding-bottom: 15px;
+}
+
+.dashboard {
+  margin: 0px;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  background-color: #404040;
+  color: white;
+  text-decoration: none;
+}
+
+.yearNumber {
+  text-align: center;
+  font-weight: bold;
+  font-size: x-large;
+  margin-bottom: 5px;
+}
