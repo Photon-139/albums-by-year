@@ -1,0 +1,13 @@
+.yearNumber {
+  text-align: center;
+  font-weight: bold;
+  font-size: x-large;
+  margin-bottom: 5px;
+}
+
+.albumList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 3px;
+}
