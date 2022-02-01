@@ -1,5 +1,6 @@
-import Dashboard from "./Dashboard"
-import Login from "./Login"
+import Dashboard from "./Dashboard/Dashboard"
+import Login from "./Login/Login"
+import "./App.css"
 
 function checkLocal() {
   if (
@@ -32,7 +33,7 @@ function checkParams() {
 }
 
 function App() {
-  return checkLocal() || checkParams() ? <Dashboard /> : <Login />
+  return <div>{checkLocal() || checkParams() ? <Dashboard /> : <Login />}</div>
 }
 
 export default App
