@@ -3,6 +3,8 @@ import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
 import Years from "../Years/Years"
 import * as Styles from "./styles.module.css"
+import Toggle from "../Toggle/Toggle"
+import Decades from "../Decades/Decades"
 
 const initialize = () => {
   setInterval(() => {
@@ -29,6 +31,7 @@ export default function Dashboard() {
   })
   let [albums, setAlbums] = useState([])
   let [loading, setLoading] = useState(true)
+  let [toShowYears, setToShowYears] = useState(true)
 
   useEffect(() => {
     let needMoreAlbums = false
@@ -107,6 +110,7 @@ export default function Dashboard() {
                 })
                 setAlbums(albumData)
                 setLoading(false)
+                console.log(albumData)
               },
               (err) => console.log(err)
             )
@@ -123,10 +127,30 @@ export default function Dashboard() {
         <div>Loading...</div>
       ) : (
         <div className={Styles.dashboard}>
+          <div id={Styles["toggle-between"]}>
+            <p>Years</p>
+            <Toggle onToggle={() => setToShowYears(!toShowYears)} />
+            <p>Decades</p>
+          </div>
+          <div style={{ float: "right", width: "100px", height: "100vh" }}>
+            <div>
+              <ul>
+                {Object.keys(albums).map((year) => (
+                  <li>
+                    <a href={"#" + year}>{year}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <main>
-            {Object.keys(albums).map((year) => (
-              <Years key={year} year={year} albums={albums[year]} />
-            ))}
+            {toShowYears ? (
+              Object.keys(albums).map((year) => (
+                <Years key={year} year={year} albums={albums[year]} />
+              ))
+            ) : (
+              <Decades data={albums} />
+            )}
           </main>
         </div>
       )}

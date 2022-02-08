@@ -15,6 +15,7 @@ export default function Years({ year, albums }) {
             artist={album.artist}
             cover={album.cover}
             preview={album.preview}
+            dateAdded={album.dateAdded}
           />
         ))}
       </div>
