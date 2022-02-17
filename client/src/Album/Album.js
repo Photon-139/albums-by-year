@@ -1,5 +1,5 @@
 import React from "react"
-import * as albumStyles from "./album.module.css"
+import "./album.css"
 
 export default function Album({ name, artist, cover, preview, dateAdded }) {
   let playAudio, pauseAudio
@@ -20,17 +20,21 @@ export default function Album({ name, artist, cover, preview, dateAdded }) {
     }
   }
   return (
-    <div className={albumStyles.album}>
-      {preview !== null ? (
-        <img
-          onMouseOver={playAudio}
-          onMouseOut={pauseAudio}
-          src={cover}
-          alt={name}
-        ></img>
-      ) : (
-        <img src={cover} alt={name}></img>
-      )}
+    <div className="album">
+      <div className="album-cover">
+        {preview !== null ? (
+          <img
+            onMouseOver={playAudio}
+            onMouseOut={pauseAudio}
+            src={cover}
+            alt={name}
+            data-content={dateAdded}
+          ></img>
+        ) : (
+          <img src={cover} alt={name} data-content={dateAdded}></img>
+        )}
+        <p className="text-overlay">{dateAdded}</p>
+      </div>
       <div>
         <p>{name}</p>
         <p>{artist}</p>

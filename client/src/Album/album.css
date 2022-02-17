@@ -1,0 +1,22 @@
+.album {
+  position: relative;
+  padding: 10px;
+  /* text-align: center; */
+  max-width: 300px;
+}
+
+.text-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+img {
+  padding: 0;
+}
+
+.album-cover img:hover {
+  content: attr(data-content);
+  transition: 0.1s ease;
+  filter: brightness(50%);
+}
