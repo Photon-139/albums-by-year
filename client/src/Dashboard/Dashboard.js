@@ -13,7 +13,7 @@ export default function Dashboard() {
     setInterval(() => {
       console.log("Refresh")
       axios
-        .post("http://localhost:5000/refresh", {
+        .post(process.env.REACT_APP_SERVER + "/refresh", {
           refreshToken: localStorage.getItem("refreshToken"),
         })
         .then((data) => {
@@ -38,7 +38,7 @@ export default function Dashboard() {
             <Toggle onToggle={() => setToShowYears(!toShowYears)} />
             <p>Decades</p>
           </div>
-          <main>
+          <div>
             {toShowYears ? (
               Object.keys(albums).map((year) => (
                 <Years key={year} year={year} albums={albums[year]} />
@@ -46,7 +46,7 @@ export default function Dashboard() {
             ) : (
               <Decades data={albums} />
             )}
-          </main>
+          </div>
         </div>
       )}
     </>

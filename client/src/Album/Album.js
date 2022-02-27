@@ -36,7 +36,7 @@ export default function Album({ name, artist, cover, preview, dateAdded }) {
       <div>
         <p>{name}</p>
         <p>{artist}</p>
-        <p>Added to library on {dateAdded.slice(0, 10)}</p>
+        <p>Added on: {dateAdded.slice(0, 10)}</p>
       </div>
     </div>
   )

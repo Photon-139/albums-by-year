@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import SpotifyWebApi from "spotify-web-api-node"
 const spotifyApi = new SpotifyWebApi({
-  clientId: "***REMOVED***",
-  redirectUri: "http://localhost:5000/callback",
+  clientId: process.env.REACT_APP_CLIENT_ID,
+  redirectUri: process.env.REACT_APP_SERVER + "/callback",
   refreshToken: localStorage.getItem("refreshToken"),
   accessToken: localStorage.getItem("accessToken"),
 })
