@@ -1,14 +1,7 @@
 .album {
   position: relative;
   padding: 10px;
-  /* text-align: center; */
   max-width: 300px;
-}
-
-.text-overlay {
-  position: relative;
-  top: 0;
-  left: 0;
 }
 
 img {

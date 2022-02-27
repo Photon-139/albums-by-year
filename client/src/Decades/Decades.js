@@ -11,11 +11,11 @@ export default function Decades({ data }) {
       decadesData[year.slice(0, 3) + "0s"] = [...data[year]]
     }
   })
-  console.log(decadesData)
+
   return (
     <>
       {Object.keys(decadesData).map((decade) => (
-        <div>
+        <div key={decade}>
           <p className="decade">
             {decade} ({decadesData[decade].length})
           </p>
@@ -27,6 +27,7 @@ export default function Decades({ data }) {
                 cover={album.cover}
                 preview={album.preview}
                 dateAdded={album.dateAdded}
+                key={`${album.name} - ${album.dateAdded}`}
               />
             ))}
           </div>

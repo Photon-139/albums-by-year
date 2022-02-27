@@ -6,7 +6,6 @@ export default function Album({ name, artist, cover, preview, dateAdded }) {
   if (preview !== null) {
     const previewAudio = new Audio(preview)
     let audioPromise
-    let audioTimeout
     playAudio = () => {
       audioPromise = previewAudio.play()
     }
@@ -33,11 +32,11 @@ export default function Album({ name, artist, cover, preview, dateAdded }) {
         ) : (
           <img src={cover} alt={name} data-content={dateAdded}></img>
         )}
-        <p className="text-overlay">{dateAdded}</p>
       </div>
       <div>
         <p>{name}</p>
         <p>{artist}</p>
+        <p>Added to library on {dateAdded.slice(0, 10)}</p>
       </div>
     </div>
   )

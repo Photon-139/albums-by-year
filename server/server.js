@@ -6,16 +6,16 @@ app.use(cors())
 const SpotifyWebApi = require("spotify-web-api-node")
 const url = require("url")
 const querystring = require("querystring")
+require("dotenv").config()
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "***REMOVED***",
-  clientSecret: "***REMOVED***",
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
   redirectUri: "http://localhost:5000/callback",
 })
 
 app.get("/login", (req, res) => {
-  const AUTH_URL =
-    "https://accounts.spotify.com/authorize?client_id=***REMOVED***&response_type=code&redirect_uri=http://localhost:5000/callback&scope=user-library-read&state=34fFs29kd09"
+  const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback&scope=user-library-read&state=34fFs29kd09`
   res.redirect(AUTH_URL)
 })
 
@@ -37,8 +37,8 @@ app.get("/callback", (req, res) => {
 
 app.post("/refresh", (req, res) => {
   const spotifyApi = new SpotifyWebApi({
-    clientId: "***REMOVED***",
-    clientSecret: "***REMOVED***",
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
     redirectUri: "http://localhost:5000/callback",
     refreshToken: req.body.refreshToken,
   })
