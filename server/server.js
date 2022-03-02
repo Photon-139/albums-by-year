@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 const SpotifyWebApi = require("spotify-web-api-node")
-const url = require("url")
+const { URL } = require("url")
 const querystring = require("querystring")
 require("dotenv").config()
 
@@ -22,12 +22,17 @@ app.get("/login", (req, res) => {
 app.get("/callback", (req, res) => {
   spotifyApi.authorizationCodeGrant(req.query.code).then(
     (data) => {
-      const query = querystring.stringify({
-        accessToken: data.body.access_token,
-        refreshToken: data.body.refresh_token,
-        expiresIn: data.body.expires_in,
-      })
-      res.redirect(url.format(new URL(`http://localhost:3000/?${query}`)))
+      // const query = querystring.stringify({
+      //   accessToken: data.body.access_token,
+      //   refreshToken: data.body.refresh_token,
+      //   expiresIn: data.body.expires_in,
+      // })
+      // res.redirect(url.format(new URL(`http://localhost:3000/?${query}`)))
+      res.redirect(
+        new URL(
+          `http://localhost:3000?accessToken=${data.body.access_token}&refreshToken=${data.body.refresh_token}&expiresIn=${data.body.expires_in}`
+        )
+      )
     },
     (err) => {
       console.log(err)
@@ -44,7 +49,6 @@ app.post("/refresh", (req, res) => {
   })
   spotifyApi.refreshAccessToken().then(
     (data) => {
-      console.log(data)
       res.json({
         accessToken: data.body.access_token,
         expiresIn: data.body.expires_in,

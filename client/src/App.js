@@ -7,7 +7,7 @@ function checkLocal() {
     !localStorage.getItem("accessToken") ||
     !localStorage.getItem("refreshToken") ||
     !localStorage.getItem("expiresIn") ||
-    new Date().getTime() > localStorage.getItem("expiresIn")
+    new Date().getTime() > parseInt(localStorage.getItem("expiresIn"))
   ) {
     return false
   }

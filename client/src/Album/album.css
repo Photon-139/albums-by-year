@@ -9,7 +9,6 @@ img {
 }
 
 .album-cover img:hover {
-  content: attr(data-content);
   transition: 0.1s ease;
   filter: brightness(50%);
 }

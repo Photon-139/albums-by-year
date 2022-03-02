@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react"
 import SpotifyWebApi from "spotify-web-api-node"
-const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.REACT_APP_CLIENT_ID,
-  redirectUri: process.env.REACT_APP_SERVER + "/callback",
-  refreshToken: localStorage.getItem("refreshToken"),
-  accessToken: localStorage.getItem("accessToken"),
-})
 
 export default function useAlbums() {
   let [albums, setAlbums] = useState([])
   let [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const spotifyApi = new SpotifyWebApi({
+      clientId: process.env.REACT_APP_CLIENT_ID,
+      redirectUri: process.env.REACT_APP_SERVER + "/callback",
+      refreshToken: localStorage.getItem("refreshToken"),
+      accessToken: localStorage.getItem("accessToken"),
+    })
     let needMoreAlbums = false
     let moreAlbums = 0
     let albumData = {}
@@ -30,6 +30,10 @@ export default function useAlbums() {
                 artist: album.album.artists[0].name,
                 cover: album.album.images[1].url,
                 preview: album.album.tracks.items[0].preview_url,
+                // preview:
+                //   album.album.tracks.items[
+                //     Math.floor(Math.random() * album.album.tracks.items.length)
+                //   ].preview_url,
                 albumLink: album.album.external_urls.spotify,
                 artistLink: album.album.artists[0].external_urls.spotify,
                 dateAdded: album.added_at,
@@ -41,6 +45,12 @@ export default function useAlbums() {
                   artist: album.album.artists[0].name,
                   cover: album.album.images[1].url,
                   preview: album.album.tracks.items[0].preview_url,
+                  // preview:
+                  //  album.album.tracks.items[
+                  //    Math.floor(
+                  //      Math.random() * album.album.tracks.items.length
+                  //    )
+                  //  ].preview_url,
                   albumLink: album.album.external_urls.spotify,
                   artistLink: album.album.artists[0].external_urls.spotify,
                   dateAdded: album.added_at,
@@ -65,6 +75,12 @@ export default function useAlbums() {
                         artist: album.album.artists[0].name,
                         cover: album.album.images[1].url,
                         preview: album.album.tracks.items[0].preview_url,
+                        // preview:
+                        //  album.album.tracks.items[
+                        //    Math.floor(
+                        //      Math.random() * album.album.tracks.items.length
+                        //    )
+                        //  ].preview_url,
                         albumLink: album.album.external_urls.spotify,
                         artistLink:
                           album.album.artists[0].external_urls.spotify,
@@ -77,6 +93,12 @@ export default function useAlbums() {
                           artist: album.album.artists[0].name,
                           cover: album.album.images[1].url,
                           preview: album.album.tracks.items[0].preview_url,
+                          // preview:
+                          //  album.album.tracks.items[
+                          //    Math.floor(
+                          //      Math.random() * album.album.tracks.items.length
+                          //    )
+                          //  ].preview_url,
                           albumLink: album.album.external_urls.spotify,
                           artistLink:
                             album.album.artists[0].external_urls.spotify,
