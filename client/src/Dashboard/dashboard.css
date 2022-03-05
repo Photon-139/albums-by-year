@@ -4,4 +4,46 @@
   align-items: center;
   justify-content: center;
   gap: 0.75em;
+  z-index: 2;
+  padding: 5px;
+}
+
+#albums {
+  z-index: 1;
+}
+
+#instruction-overlay {
+  z-index: 3;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #171717;
+}
+
+#instructions {
+  position: fixed;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 25px;
+}
+
+#instructions p {
+  padding: 30px;
+  font-size: x-large;
+  text-align: center;
+}
+
+#close-instructions {
+  border: none;
+  padding: 0;
+  background: none;
+  position: relative;
+  float: right;
+  padding: 10px;
+  cursor: pointer;
+  font-size: large;
 }

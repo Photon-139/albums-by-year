@@ -26,6 +26,7 @@ export default function Dashboard() {
 
   let [albums, loading] = useAlbums()
   let [toShowYears, setToShowYears] = useState(true)
+  let [showInstructions, setShowInstructions] = useState(true)
 
   return (
     <>
@@ -33,12 +34,32 @@ export default function Dashboard() {
         <div>Loading...</div>
       ) : (
         <div className="dashboard">
+          {showInstructions ? (
+            <>
+              <div
+                id="instruction-overlay"
+                onClick={() => setShowInstructions(false)}
+              ></div>
+              <div id="instructions">
+                <button
+                  id="close-instructions"
+                  onClick={() => setShowInstructions(false)}
+                >
+                  x
+                </button>
+                <p>
+                  Toggle to change how you want to view the albums, year-by-year
+                  or decade-by-decade
+                </p>
+              </div>
+            </>
+          ) : null}
           <div id="toggle-between">
             <p>Years</p>
             <Toggle onToggle={() => setToShowYears(!toShowYears)} />
             <p>Decades</p>
           </div>
-          <div>
+          <div id="albums">
             {toShowYears ? (
               Object.keys(albums).map((year) => (
                 <Years key={year} year={year} albums={albums[year]} />
