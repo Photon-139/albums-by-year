@@ -11,7 +11,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     setInterval(() => {
-      console.log("Refresh")
       axios
         .post(process.env.REACT_APP_SERVER + "/refresh", {
           refreshToken: localStorage.getItem("refreshToken"),
@@ -50,6 +49,10 @@ export default function Dashboard() {
                 <p>
                   Toggle to change how you want to view the albums, year-by-year
                   or decade-by-decade
+                  <br />
+                  Hover over an album to play a preview
+                  <br />
+                  Enjoy!
                 </p>
               </div>
             </>

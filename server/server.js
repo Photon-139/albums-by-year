@@ -5,7 +5,6 @@ app.use(express.json())
 app.use(cors())
 const SpotifyWebApi = require("spotify-web-api-node")
 const { URL } = require("url")
-const querystring = require("querystring")
 require("dotenv").config()
 
 const spotifyApi = new SpotifyWebApi({
