@@ -1,11 +1,11 @@
-.yearNumber {
+.time-frame {
   text-align: center;
   font-weight: bold;
   font-size: x-large;
   margin-bottom: 5px;
 }
 
-.albumList {
+.album-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

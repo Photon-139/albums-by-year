@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import Years from "../Years/Years"
 import "./dashboard.css"
 import Toggle from "../Toggle/Toggle"
-import Decades from "../Decades/Decades"
 import useAlbums from "./useAlbums"
+import AlbumList from "../AlbumList/AlbumList"
 
 export default function Dashboard() {
   window.history.pushState({}, null, "/")
@@ -63,13 +62,7 @@ export default function Dashboard() {
             <p>Decades</p>
           </div>
           <div id="albums">
-            {toShowYears ? (
-              Object.keys(albums).map((year) => (
-                <Years key={year} year={year} albums={albums[year]} />
-              ))
-            ) : (
-              <Decades data={albums} />
-            )}
+            <AlbumList data={albums} toShowYear={toShowYears} />
           </div>
         </div>
       )}
