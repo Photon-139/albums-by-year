@@ -30,6 +30,7 @@ export default function useAlbums() {
                 artist: album.album.artists[0].name,
                 cover: album.album.images[1].url,
                 preview: album.album.tracks.items[0].preview_url,
+                previewTrackName: album.album.tracks.items[0].name,
                 // preview:
                 //   album.album.tracks.items[
                 //     Math.floor(Math.random() * album.album.tracks.items.length)
@@ -45,6 +46,7 @@ export default function useAlbums() {
                   artist: album.album.artists[0].name,
                   cover: album.album.images[1].url,
                   preview: album.album.tracks.items[0].preview_url,
+                  previewTrackName: album.album.tracks.items[0].name,
                   // preview:
                   //  album.album.tracks.items[
                   //    Math.floor(
@@ -75,6 +77,7 @@ export default function useAlbums() {
                         artist: album.album.artists[0].name,
                         cover: album.album.images[1].url,
                         preview: album.album.tracks.items[0].preview_url,
+                        previewTrackName: album.album.tracks.items[0].name,
                         // preview:
                         //  album.album.tracks.items[
                         //    Math.floor(
@@ -93,6 +96,7 @@ export default function useAlbums() {
                           artist: album.album.artists[0].name,
                           cover: album.album.images[1].url,
                           preview: album.album.tracks.items[0].preview_url,
+                          previewTrackName: album.album.tracks.items[0].name,
                           // preview:
                           //  album.album.tracks.items[
                           //    Math.floor(

@@ -5,9 +5,19 @@
   margin-bottom: 5px;
 }
 
-.album-list {
+.timeframe-albums {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding-bottom: 3px;
+  z-index: 3;
+}
+
+#navigation {
+  z-index: 5;
+  height: 100%;
+}
+
+#navigation ul {
+  position: fixed;
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import "./album.css"
 
-export default function Album({ name, artist, cover, preview, dateAdded }) {
+export default function Album({ name, artist, cover, preview, dateAdded, previewTrackName }) {
   let playAudio, pauseAudio
   if (preview !== null) {
     const previewAudio = new Audio(preview)
@@ -22,13 +22,16 @@ export default function Album({ name, artist, cover, preview, dateAdded }) {
     <div className="album">
       <div className="album-cover">
         {preview !== null ? (
-          <img
-            onMouseOver={playAudio}
-            onMouseOut={pauseAudio}
-            src={cover}
-            alt={name}
-            data-content={dateAdded}
-          ></img>
+          <>
+            <img
+              onMouseOver={playAudio}
+              onMouseOut={pauseAudio}
+              src={cover}
+              alt={name}
+              data-content={dateAdded}
+            ></img>
+            <p className="now-playing">Now playing: <strong>{previewTrackName}</strong></p>
+          </>
         ) : (
           <img src={cover} alt={name} data-content={dateAdded}></img>
         )}

@@ -61,9 +61,9 @@ export default function Dashboard() {
             <Toggle onToggle={() => setToShowYears(!toShowYears)} />
             <p>Decades</p>
           </div>
-          <div id="albums">
+          <>
             <AlbumList data={albums} toShowYear={toShowYears} />
-          </div>
+          </>
         </div>
       )}
     </>

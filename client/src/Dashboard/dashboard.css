@@ -8,10 +8,6 @@
   padding: 5px;
 }
 
-#albums {
-  z-index: 1;
-}
-
 #instruction-overlay {
   z-index: 3;
   opacity: 0.5;
