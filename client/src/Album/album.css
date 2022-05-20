@@ -1,95 +1,48 @@
 .album {
-  position: relative;
-  padding: 15px;
-  max-width: 300px;
+    position: relative;
+    padding: 15px;
+    max-width: 300px;
 }
 
 img {
-  padding: 0;
+    padding: 0;
 }
 
-.now-playing{
-  position: relative;
-  visibility: hidden;
+.now-playing {
+    position: relative;
+    visibility: hidden;
 }
 
-.album-cover{
-  max-width: 300px;
-  max-height: 300px;
+.album-cover {
+    max-width: 300px;
+    max-height: 300px;
 }
 
-.now-playing{
-  position: absolute;
-  z-index: 100;
-  pointer-events: none;
-  text-align: center;
-  top: 40%;
-  width: 300px;
+.now-playing {
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .album-cover img:hover {
-  transition: 0.1s ease;
-  filter: brightness(50%);
+    transition: 0.1s ease;
+    filter: brightness(50%);
 }
 .album-cover img:hover + .now-playing {
-visibility: visible;
+    visibility: visible;
 }
 
-
-@media all and (max-width: 670px) {
-  .album{
-    max-width: 250px;
-    transition: ease;
-  }
-  .album-cover img{
-    max-width: 250px;
-    transition: ease;
-  }
-
-  .now-playing{
-    position: absolute;
-    z-index: 100;
-    pointer-events: none;
-    text-align: center;
-    top: 40%;
-    width: 250px;
-  }
-  
+@media all and (max-width: 768px) {
+    .album-cover {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .album-cover img {
+        max-height: 250px;
+        max-width: 250px;
+    }
 }
-
-@media all and (max-width: 550px) {
-  .album{
-    max-width: 200px;
-  }
-  .album-cover img{
-    max-width: 200px;
-  }
-
-  .now-playing{
-    position: absolute;
-    z-index: 100;
-    pointer-events: none;
-    text-align: center;
-    top: 40%;
-    width: 200px;
-  }
-}
-
-@media all and (max-width: 440px) {
-  .album{
-    max-width: 150px;
-  }
-  .album-cover img{
-    max-width: 150px;
-  }
-
-  .now-playing{
-    position: absolute;
-    z-index: 100;
-    pointer-events: none;
-    text-align: center;
-    top: 40%;
-    width: 150px;
-  }
-}
-
